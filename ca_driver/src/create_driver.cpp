@@ -71,6 +71,8 @@ CreateDriver::CreateDriver(ros::NodeHandle& nh)
 
   priv_nh_.param<int>("baud", baud_, model_.getBaud());
 
+  ROS_INFO_STREAM("[CREATE] [" << baud_ << "] bps selected");
+
   robot_ = new create::Create(model_);
 
   if (!robot_->connect(dev_, baud_))
